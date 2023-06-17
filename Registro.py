@@ -253,6 +253,13 @@ def agregarAlumno():
                         print("Ingrese sólo letras sin espacio ni puntos")
                         break
 
+                if listaTitulos[i] == "Apellido:":
+                    if alfabetico(dato):
+                        pass
+                    else:
+                        print("Ingrese sólo letras sin espacio ni puntos")
+                        break
+
                 if consultarAlumno(dato):
                     print(f'El DNI {dato} ya pertenece a la base de datos.')
                     break
@@ -353,9 +360,10 @@ def modificarDatosG(dni):
                             listaNueva = valor
                             if numerico(listaNueva['DNI:']):
                                 modificarAlumno.remove(valor)
+                            
                             else:
                                 print('Ingrese sólo números sin espacio ni puntos')
-                                opcionMenu_2(dni)
+                                opcionMenu_2(dni)                                
 
         modificarAlumno.append(listaNueva)
         modificar.seek(0)
@@ -480,14 +488,14 @@ def modificarNotas(dni):
         promedio2 = round((((notaCam[notaCam['Materia 2:']]['Nota 1']) + (notaCam[notaCam['Materia 2:']]['Nota 2'])) / 2), 2)
 
         def situacionMateria1():
-            if promedio1 >= 4:
+            if promedio1 >= 7:
                 return 'Regular'
 
             else:
                 return 'No regular'
 
         def situacionMateria2():
-            if promedio2 >= 4:
+            if promedio2 >= 7:
                 return 'Regular'
 
             else:
