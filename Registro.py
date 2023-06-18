@@ -1,3 +1,5 @@
+import pygame
+import time
 import pickle
 from itertools import islice
 from banner import baner
@@ -99,6 +101,7 @@ def opcionMenu_1():
             opcionMenu_1()
 
     elif opcion == '5':
+        reproducirAudio()
         print(baner)
         exit()
 
@@ -530,5 +533,12 @@ def eliminarAlumno(dni):
         pickle.dump(bajaAlumno, eliminar)
     print('Operación exitosa')
     volverAtras()
+
+def reproducirAudio():
+    pygame.mixer.init()
+    pygame.mixer.music.load('baby.mp3')
+    pygame.mixer.music.play()
+    time.sleep(2.5)
+    pygame.mixer.music.stop()
 
 opcionMenu_1()
