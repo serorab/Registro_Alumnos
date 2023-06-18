@@ -34,8 +34,8 @@ baner = '''
               .;xXMMMWKkoc:cdKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW0l.               
                  .lkNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWKd;.                 
                     'cx0NWMMMMMMMMMMMMMMMMMMMMMMMMMMMMWXOo;.                    
-                       .,cdk0XWMMMMMMMMMMMMMMMMMWNKOxl;.      .....             
-                            ..,:coddxkkkkkxxdolc;'.            ..'.             
+                       .,cdk0XWMMMMMMMMMMMMMMMMMWNKOxl;.                   
+                            ..,:coddxkkkkkxxdolc;'.                      
                                                                                 
                                        2023
 '''
