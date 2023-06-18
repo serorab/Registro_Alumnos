@@ -1,5 +1,5 @@
-import pygame
-import time
+import pygame #Librería necesaria para la reproducción del audio.
+import time #Se importa para controlar el tiempo de reproducción del audio.
 import pickle
 from itertools import islice
 from banner import baner
@@ -101,8 +101,8 @@ def opcionMenu_1():
             opcionMenu_1()
 
     elif opcion == '5':
-        reproducirAudio()
         print(baner)
+        reproducirAudio()        
         exit()
 
     else:
