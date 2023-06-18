@@ -70,35 +70,41 @@ def opcionMenu_1():
                             ¿Desea continuar? S/N
 
         ''')
-        opcion = input()
-        if opcion.upper() == 'S':
-            dni = input('Ingrese el DNI del alumno: ')
-            if consultarAlumno(dni):
-                print('Se borrará de manera permanente el registro de:')
-                for index, (key, value) in enumerate(islice(consultarAlumno(dni).items(), 4)):
-                    print(key, value)
-                print('\n¿Desea continuar? S/N\n')
-                op = input()
-                if op.upper() == 'S':
-                    eliminarAlumno(dni)
+        try:
+            opcion = input()
+            if opcion.upper() == 'S':
+                dni = input('Ingrese el DNI del alumno: ')
+                if consultarAlumno(dni):
+                    print('Se borrará de manera permanente el registro de:')
+                    for index, (key, value) in enumerate(islice(consultarAlumno(dni).items(), 4)):
+                        print(key, value)
+                    print('\n¿Desea continuar? S/N\n')
+                    op = input()
+                    if op.upper() == 'S':
+                        eliminarAlumno(dni)
 
-                elif op.upper() == 'N':
-                    opcionMenu_1()
+                    elif op.upper() == 'N':
+                        opcionMenu_1()
+
+                    else:
+                        print('La opción ingresada no es válida')
+                        opcionMenu_1()
 
                 else:
-                    print('La opción ingresada no es válida')
+                    print(f'El DNI {dni} no se puede eliminar porque no pertenece a la base de datos.')
                     opcionMenu_1()
 
-            else:
-                print(f'El DNI {dni} no se puede eliminar porque no pertenece a la base de datos.')
+            elif opcion.upper() == 'N':
                 opcionMenu_1()
 
-        elif opcion.upper() == 'N':
-            opcionMenu_1()
+            else:
+                print('La opción ingresada no es válida.')
+                opcionMenu_1()
+        
+        except FileNotFoundError:
+            print('\nNo es posible realizar esta acción. No se ha creado el archivo "Alumnos" en el sistema.\n')
+            volverAtras()
 
-        else:
-            print('La opción ingresada no es válida.')
-            opcionMenu_1()
 
     elif opcion == '5':
         print(baner)
