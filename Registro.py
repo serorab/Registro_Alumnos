@@ -315,26 +315,30 @@ def agregarAlumno():
             pickle.dump(listaNombres, archivo)
 
 def consultarAlumno(dni):
-    with open('Alumnos.IFTS18', 'rb') as consulta:
-        print('')
-        consultaAlumno = pickle.load(consulta)
-        diccionario = {}
-        dniExiste = False
+    try:
+        with open('Alumnos.IFTS18', 'rb') as consulta:
+            print('')
+            consultaAlumno = pickle.load(consulta)
+            diccionario = {}
+            dniExiste = False
 
-        #La variable 'valor' recorre los elementos de consultaAlumno.
-        for valor in consultaAlumno:
-            #La variable 'dicc' recorre los elementos de valor.
-            for dicc in valor.items():
-                if (dni == dicc[1]) and (dicc[0] == 'DNI:'):
-                    for key, value in valor.items():
-                        diccionario[key] = value
-                        dniExiste = True
+            #La variable 'valor' recorre los elementos de consultaAlumno.
+            for valor in consultaAlumno:
+                #La variable 'dicc' recorre los elementos de valor.
+                for dicc in valor.items():
+                    if (dni == dicc[1]) and (dicc[0] == 'DNI:'):
+                        for key, value in valor.items():
+                            diccionario[key] = value
+                            dniExiste = True
 
-        if dniExiste:
-            return diccionario
+            if dniExiste:
+                return diccionario
 
-        else:
-            return dniExiste
+            else:
+                return dniExiste
+
+    except FileNotFoundError:
+        print('No existe un archivo "Alumnos" en el sistema')
 
 def modificarDatosG(dni):
     with open('Alumnos.IFTS18', 'rb+') as modificar:
